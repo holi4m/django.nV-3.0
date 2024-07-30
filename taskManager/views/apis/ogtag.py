@@ -1,9 +1,10 @@
 import urllib.request
+import advocate
 from bs4 import BeautifulSoup
 
 from django.http import JsonResponse
 
-
+#! Server-side request forgery (SSRF)
 def retrive(request):
     url = request.GET.get('url', '')
 

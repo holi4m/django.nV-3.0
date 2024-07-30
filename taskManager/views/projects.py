@@ -20,7 +20,7 @@ def project_create(request):
         now = timezone.now()
         project_duedate = request.POST.get('project_duedate', False)
 
-        if project_duedate is '':
+        if project_duedate == '':
             project_duedate = datetime.datetime.utcnow().strftime('%s')
 
         project_duedate = timezone.make_aware(datetime.datetime.fromtimestamp(
@@ -53,7 +53,7 @@ def project_edit(request, project_id):
         project_priority = int(request.POST.get('project_priority', False))
         project_duedate = request.POST.get('project_duedate', False)
 
-        if project_duedate is '':
+        if project_duedate == '':
             project_duedate = datetime.datetime.utcnow().strftime('%s')
 
         project_duedate = datetime.datetime.fromtimestamp(int(project_duedate))
