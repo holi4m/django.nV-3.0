@@ -33,4 +33,3 @@ You should then be able to access the web interface at `http://localhost:8000/`.
 - three
 - four
 - test
-- test2
