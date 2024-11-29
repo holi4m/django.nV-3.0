@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DEPLOY_USER = 'ubuntu'
-        DEPLOY_HOST = '43.201.73.84'
+        DEPLOY_HOST = '172.31.37.40'
         DEPLOY_PATH = '/home/ubuntu/djangonV'
     }
     stages {
