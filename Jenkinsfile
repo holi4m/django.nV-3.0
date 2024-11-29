@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/<username>/<repository>.git'
+                git branch: 'main', url: 'https://github.com/holi4m/django.nV-3.0.git'
             }
         }
         stage('Install Dependencies') {
