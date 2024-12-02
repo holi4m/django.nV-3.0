@@ -18,9 +18,9 @@ pipeline {
                     python3 -m venv venv &&
                     source venv/bin/activate &&
                     pip install -r requirements.txt &&
+                    python ./manage.py makemigrations &&
                     python manage.py migrate &&
-                    nohup python manage.py runserver 0.0.0.0:8000 --noreload > /dev/null 2>&1 &
-                    disown
+                    
                 "
                 '''}
             }

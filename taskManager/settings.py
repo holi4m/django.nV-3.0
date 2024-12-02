@@ -111,3 +111,5 @@ LOGIN_URL = '/login/'
 PASSWORD_HASHERS = ['django.contrib.auth.hashers.MD5PasswordHasher']
 
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
