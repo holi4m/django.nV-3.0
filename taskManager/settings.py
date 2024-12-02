@@ -82,7 +82,7 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 STATIC_URL = '/static/'
 
 
-STATIC_ROOT = '/var/www/html/static/'
+STATIC_ROOT = '/var/www/static/'
 
 
 STATICFILES_DIRS = [
