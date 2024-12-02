@@ -19,7 +19,7 @@ pipeline {
                     source venv/bin/activate &&
                     pip install -r requirements.txt &&
                     python manage.py migrate &&
-                    nohup manage.py 0.0.0.0:8000 --noreload &
+                    nohup python manage.py 0.0.0.0:8000 --noreload &
                 "
                 '''}
             }
