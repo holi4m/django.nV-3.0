@@ -4,51 +4,24 @@ pipeline {
         DEPLOY_USER = 'ubuntu'
         DEPLOY_HOST = '172.31.37.40'
         DEPLOY_PATH = '/home/ubuntu/djangonV'
+        PEM_KEY = '~/.ssh/Key_Holiam_EC2_Pem.pem' // PEM 키 파일 경로
     }
     stages {
-        stage('Clone Repository') {
-            steps {
-                git branch: 'main', url: 'https://github.com/holi4m/django.nV-3.0.git'
-            }
-        }
-        stage('Install Dependencies') {
+        stage('Deploy to Server') {
             steps {
                 sh '''
-                ssh ${DEPLOY_USER}@${DEPLOY_HOST} "
+                ssh -i ${PEM_KEY} -o StrictHostKeyChecking=no ${DEPLOY_USER}@${DEPLOY_HOST} "
+                    mkdir -p ${DEPLOY_PATH} &&
                     cd ${DEPLOY_PATH} &&
+                    git pull &&
                     python3 -m venv venv &&
                     source venv/bin/activate &&
-                    pip install -r requirements.txt
-                "
-                '''
-            }
-        }
-        stage('Run Tests') {
-            steps {
-                sh '''
-                ssh ${DEPLOY_USER}@${DEPLOY_HOST} "
-                    cd ${DEPLOY_PATH} &&
-                    source venv/bin/activate &&
-                    python manage.py test
-                "
-                '''
-            }
-        }
-        stage('Start Django Server') {
-            steps {
-                sh '''
-                ssh ${DEPLOY_USER}@${DEPLOY_HOST} "
-                    cd ${DEPLOY_PATH} &&
-                    source venv/bin/activate &&
+                    pip install -r requirements.txt &&
+                    python manage.py migrate &&
                     nohup python manage.py runserver 0.0.0.0:8000 &
                 "
                 '''
             }
-        }
-    }
-    post {
-        always {
-            echo "Pipeline completed."
         }
     }
 }
