@@ -12,7 +12,7 @@ pipeline {
                 sshagent (credentials:['KEY_holiam_ec2_pem']){
                 sh '''
                 ssh -o StrictHostKeyChecking=no ${DEPLOY_USER}@${DEPLOY_HOST} "
-                    /home/ubuntu/djangonV/cicd
+                    /home/ubuntu/djangonV/cicd.sh
                 "
                 '''
             }
