@@ -9,8 +9,9 @@ pipeline {
     stages {
         stage('Deploy to Server') {
             steps {
+                sshagent (credentials:['KEY_holiam_ec2_pem']){
                 sh '''
-                ssh -i ${PEM_KEY} -o StrictHostKeyChecking=no ${DEPLOY_USER}@${DEPLOY_HOST} "
+                ssh -o StrictHostKeyChecking=no ${DEPLOY_USER}@${DEPLOY_HOST} "
                     mkdir -p ${DEPLOY_PATH} &&
                     cd ${DEPLOY_PATH} &&
                     git pull &&
@@ -20,7 +21,7 @@ pipeline {
                     python manage.py migrate &&
                     nohup python manage.py runserver 0.0.0.0:8000 &
                 "
-                '''
+                '''}
             }
         }
     }
