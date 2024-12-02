@@ -82,7 +82,7 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "taskManager/static"),
+    os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
 )
 
