@@ -79,14 +79,14 @@ USE_TZ = True
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 
 STATIC_ROOT = '/var/www/html/static/'
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static/"),
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
