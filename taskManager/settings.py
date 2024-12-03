@@ -25,7 +25,7 @@ SECRET_KEY = '0yxzudryd8)-%)(fz&7q-!v&cq1u6vbfoc4u7@u_&i)b@4eh^q'
 
 #! Security Misconfiguration
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['43.201.73.84']
@@ -79,7 +79,7 @@ USE_TZ = True
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = os.path.join(BASE_DIR, "static")
+STATIC_URL = 'static/'
 
 
 STATIC_ROOT = '/var/www/html/static/'
