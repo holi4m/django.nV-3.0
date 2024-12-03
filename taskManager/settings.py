@@ -79,7 +79,7 @@ USE_TZ = True
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
+STATIC_URL = os.path.join(BASE_DIR, "static")
 
 
 STATIC_ROOT = '/var/www/html/static/'
